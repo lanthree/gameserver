@@ -61,7 +61,7 @@ class Daemon:
         atexit.register(self.delpid)
         pid = str(os.getpid())
         open(self.pidfile,'w+').write("%s\n" % pid)
-    
+
     def delpid(self):
         os.remove(self.pidfile)
 
@@ -129,10 +129,3 @@ class Daemon:
         You should override this method when you subclass Daemon. It will be called after the process has been
         daemonized by start() or restart().
         """        
-
-
-class MyDaemon(Daemon):
-    def run(self):
-        while True:
-            time.sleep(60)
-            print('daemon runing') # be in log

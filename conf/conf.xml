@@ -2,4 +2,6 @@
 <conf>
 	<ip>192.168.237.128</ip>
 	<port>8888</port>
+
+	<process>1</process>
 </conf>

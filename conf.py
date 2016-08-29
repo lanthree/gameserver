@@ -1,12 +1,15 @@
 import xml.etree.ElementTree as ET
 
-if __name__ == "__main__":
-	tree = ET.parse("./conf/conf.xml")
+def init_conf(conf_file):
+	tree = ET.parse(conf_file)
 	root = tree.getroot()
 
-	print(root.tag)
-	print(root.attrib)
-
+	conf = {}
 	for child in root:
-		print(child.tag, child.attrib, child.text)
-	
+		conf[child.tag] = {"text":child.text, "attr": child.attrib}
+	return conf
+
+conf = init_conf("./conf/conf.xml")
+
+if __name__ == "__main__":
+	print(conf)
