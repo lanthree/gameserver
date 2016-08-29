@@ -8,9 +8,10 @@ from conf import conf
 class ServerCore(Daemon):
 	def run(self):
 		print(conf)
+	
+		is_child = False
 		while True:
-			time.sleep(2)
-			print('daemon runing') # be in log
+		
 
 if __name__ == "__main__":
 	
