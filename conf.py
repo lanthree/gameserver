@@ -6,7 +6,8 @@ def init_conf(conf_file):
 
 	conf = {}
 	for child in root:
-		conf[child.tag] = {"text":child.text, "attr": child.attrib}
+		#conf[child.tag] = {"text":child.text, "attr": child.attrib}
+		conf[child.tag] = child.text
 	return conf
 
 conf = init_conf("./conf/conf.xml")
