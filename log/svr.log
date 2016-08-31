@@ -1,5 +1,0 @@
-[2016-08-31 03:16:22,266] [ERROR] [@ main.py line:17] child process pid=915 recv SIGTERM signal, exit
-[2016-08-31 03:16:22,269] [ERROR] [@ main.py line:17] child process pid=913 recv SIGTERM signal, exit
-[2016-08-31 03:16:22,272] [ERROR] [@ main.py line:17] child process pid=911 recv SIGTERM signal, exit
-[2016-08-31 03:16:22,276] [ERROR] [@ main.py line:17] child process pid=907 recv SIGTERM signal, exit
-[2016-08-31 03:16:22,279] [ERROR] [@ main.py line:17] child process pid=914 recv SIGTERM signal, exit
