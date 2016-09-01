@@ -21,7 +21,11 @@ def server(host, port):
 	selector.register(listener, selectors.EVENT_READ)
 
 	while True:
-		event_list	= selector.select()
+		try:
+			event_list	= selector.select()
+		except OSERR as e:
+			print(e)
+
 		for key, events in event_list:
 			conn = key.fileobj
 			if conn == listener:
@@ -31,4 +35,4 @@ def server(host, port):
 			else:
 				handler(conn, selector)
 
-server("192.168.237.128", 9999)
+server("192.168.237.128", 8888)

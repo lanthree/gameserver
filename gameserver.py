@@ -18,6 +18,23 @@ def runloop(listener):
 	svr_log = log.getchannel_svr_log("gs:%d" % (os.getpid()))
 	svr_log.info("gameserver get into function:runloop")
 	
+	selector	= selectors.DefaultSelector()
+	selector.register(listener, selectors.EVENT_READ)
+
 	while True:
-		time.sleep(1)
-		svr_log.debug("runloop sleep 1sec")
+		event_list	= selector.select()
+		for key, events in event_list:
+			conn = key.fileobj
+			if conn == listener:
+				new_conn, addr = conn.accept()
+				new_conn.setblocking(False)
+				selector.register(new_conn, selectors.EVENT_READ)
+			else:
+				message = conn.recv(1024)
+				if message:
+					svr_log.info("recv message:%s", message)
+					conn.send(message)
+				else:
+					svr_log.info("recv over")
+					selector.unregister(conn)
+					conn.close()
