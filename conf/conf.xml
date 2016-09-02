@@ -4,4 +4,6 @@
 	<port>8888</port>
 
 	<process_num>5</process_num>
+
+	<log_path>/home/lanthree/Tmp/gameserver/log/</log_path>
 </conf>
