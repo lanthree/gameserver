@@ -27,7 +27,6 @@ class GS_Controller(Daemon):
 
 		signal.signal(signal.SIGCHLD, signal.SIG_DFL)
 		signal.signal(signal.SIGTERM, handler)
-		signal.signal(signal.SIGINT,  handler) # handle for test
 
 		ip		= conf["ip"]
 		port	= int(conf["port"]) 
@@ -65,7 +64,6 @@ class GS_Controller(Daemon):
 
 		if is_child:
 			signal.signal(signal.SIGTERM, child_handler)
-			signal.signal(signal.SIGINT,  signal.SIG_IGN) # handle for test
 			gameserver.runloop(listener)	
 				
 if __name__ == "__main__":
